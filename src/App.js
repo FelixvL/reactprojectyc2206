@@ -2,6 +2,7 @@
 import React, {Component, useState} from 'react';
 import './App.css';
 import axios from 'axios';
+import VanMij from './VanMij';
 
 const api = axios.create({
   baseURL: `http://localhost:8082/`
@@ -40,6 +41,9 @@ class App extends Component {
       {this.state.naamMaaltijd}
       <button onClick={this.createMaaltijd}>create Maaltijd</button>
       {this.state.maaltijden.map( maaltijd => <h1 key={maaltijd.id}>{maaltijd.naam}</h1>)}      
+      <VanMij />
+      <VanMij />
+      <VanMij />
     </div>
     )
   }
