@@ -10,16 +10,21 @@ const api = axios.create({
 
 
 class App extends Component {
+  state = {
+    maaltijden:[]
+  }
+
   constructor(){
     super();
     api.get('/').then( res => {
       console.log(res.data);
+      this.setState({ maaltijden : res.data})
     })
   }
 
   render() {
     return (<div className="App">
-      hoi
+      {this.state.maaltijden.map( maaltijd => <h1 key={maaltijd.id}>{maaltijd.naam}</h1>)}      
     </div>
     )
   }
