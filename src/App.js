@@ -3,6 +3,7 @@ import React, {Component, useState} from 'react';
 import './App.css';
 import axios from 'axios';
 import VanMij from './VanMij';
+import Tweede from './Tweede';
 
 const api = axios.create({
   baseURL: `http://localhost:8082/`
@@ -40,10 +41,14 @@ class App extends Component {
     return (<div className="App">
       {this.state.naamMaaltijd}
       <button onClick={this.createMaaltijd}>create Maaltijd</button>
-      {this.state.maaltijden.map( maaltijd => <h1 key={maaltijd.id}>{maaltijd.naam}</h1>)}      
+      {this.state.maaltijden.map( maaltijd => <h1 key={maaltijd.id}> {maaltijd.naam} <Tweede een={maaltijd.naam} /></h1>)}      
       <VanMij />
       <VanMij />
       <VanMij />
+      <hr /><hr />
+      <Tweede een="go" />
+      <Tweede een="ging" />
+      <Tweede een="doei" />
     </div>
     )
   }
